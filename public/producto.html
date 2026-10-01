@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Consulta un producto del catálogo académico de Carranco, explora sus fotografías y selecciona la cantidad. Sitio no oficial.">
+    <meta name="theme-color" content="#0D1B2A">
+    <title>Producto | Quesos Carranco · Proyecto académico</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230D1B2A'/%3E%3Ctext x='16' y='24' text-anchor='middle' font-family='Georgia' font-size='27' fill='%23C9A24B'%3EC%3C/text%3E%3C/svg%3E">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <script src="js/productos.js" defer></script>
+    <script src="js/main.js" defer></script>
+
+    <script src="js/producto-detalle.js" defer></script>
+</head>
+<body class="detail-page">
+    <a class="skip-link" href="#contenido">Saltar al contenido</a>
+    <header class="site-header">
+        <div class="container navbar">
+            <a class="brand" href="index.html" aria-label="Quesos Carranco, inicio">
+                <img data-brand-logo src="https://quesoscarranco.com.mx/wp-content/uploads/2024/11/carranco-white-logo-200x104.png" width="154" height="64" alt="Quesos Carranco">
+                <span class="brand-fallback" hidden>Carranco<small>DESDE 1885</small></span>
+            </a>
+            <button class="icon-button menu-toggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="main-nav" hidden>
+                <i class="fa-solid fa-bars" aria-hidden="true"></i>
+            </button>
+            <nav class="main-nav" id="main-nav" aria-label="Navegación principal">
+                <a class="nav-link" href="index.html">Inicio</a>
+                <a class="nav-link active" href="productos.html" aria-current="page">Productos</a>
+                <a class="nav-link" href="index.html#tradicion" data-home-target="tradicion">Nosotros</a>
+                <a class="nav-link" href="index.html#contacto" data-home-target="contacto">Contacto</a>
+                <a class="nav-link nav-account" href="cuenta.html" data-future="Mi cuenta y pedidos"><i class="fa-regular fa-user" aria-hidden="true"></i> Mi cuenta</a>
+                <a class="nav-cart" href="carrito.html" data-open-cart aria-label="Carrito, 0 productos">
+                    <i class="fa-solid fa-bag-shopping" aria-hidden="true"></i><span>Carrito</span><span class="cart-count" data-cart-count>0</span>
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <main id="contenido">
+        <section class="container product-page" aria-label="Detalle del producto">
+            <nav class="breadcrumb" aria-label="Ruta de navegación">
+                <ol><li><a href="index.html">Inicio</a></li><li aria-hidden="true">/</li><li><a href="productos.html">Productos</a></li><li aria-hidden="true">/</li><li id="breadcrumb-current" aria-current="page">Producto</li></ol>
+            </nav>
+            <div class="not-found" id="product-not-found" hidden>
+                <p class="eyebrow">CATÁLOGO CARRANCO</p>
+                <h1>No encontramos este producto.</h1>
+                <p>Consulta el catálogo para elegir uno de los productos disponibles en el prototipo.</p>
+                <a class="button button-navy" href="productos.html">Volver al catálogo</a>
+            </div>
+            <div id="product-view" hidden>
+                <div class="product-layout">
+                    <div class="product-gallery">
+                        <figure>
+                            <div class="gallery-frame">
+                                <img id="main-product-image" data-gallery-main width="680" height="680" alt="">
+                                <span class="image-unavailable" id="gallery-error" role="img" hidden>Imagen no disponible</span>
+                            </div>
+                            <figcaption class="gallery-caption" id="gallery-caption"></figcaption>
+                        </figure>
+                        <div class="gallery-thumbnails" id="product-thumbnails" role="group" aria-label="Seleccionar fotografía del producto"></div>
+                    </div>
+                    <div class="product-info">
+                        <p class="eyebrow" id="detail-category"></p>
+                        <h1 class="product-title" id="product-name"></h1>
+                        <div class="rating-line"><span class="rating-stars" aria-hidden="true">★★★★★</span><small>Valoración ilustrativa del prototipo.</small></div>
+                        <p class="detail-price" id="detail-price"></p>
+                        <p class="demo-note">Precio de demostración académica.</p>
+                        <p class="detail-description" id="detail-description"></p>
+                        <form id="product-purchase">
+                            <div class="purchase-fields">
+                                <div><label for="product-presentation">Presentación</label><select class="presentation-select" id="product-presentation" name="presentacion" aria-describedby="purchase-note"></select></div>
+                                <div>
+                                    <label for="product-quantity">Cantidad</label>
+                                    <div class="quantity detail-quantity" role="group" aria-label="Cantidad a agregar">
+                                        <button type="button" id="quantity-minus" aria-label="Disminuir cantidad" aria-controls="product-quantity" disabled>−</button>
+                                        <input id="product-quantity" name="cantidad" type="number" min="1" max="20" step="1" value="1" inputmode="numeric" required aria-describedby="purchase-note">
+                                        <button type="button" id="quantity-plus" aria-label="Aumentar cantidad" aria-controls="product-quantity">+</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="purchase-note" id="purchase-note">Presentación simulada. Máximo de 20 unidades por producto, incluyendo las del carrito.</p>
+                            <button class="button button-gold purchase-button" type="submit" id="detail-add-button">AGREGAR AL CARRITO</button>
+                        </form>
+                        <div class="product-reassurance">
+                            <p><i class="fa-solid fa-snowflake" aria-hidden="true"></i><span><strong>Producto refrigerado</strong><small>Mantener en refrigeración</small></span></p>
+                            <p><i class="fa-solid fa-shield-halved" aria-hidden="true"></i><span><strong>Compra segura</strong><small>Simulación sin cobros reales</small></span></p>
+                            <p><i class="fa-solid fa-box-open" aria-hidden="true"></i><span><strong>Disponibilidad simulada</strong><small id="detail-availability"></small></span></p>
+                            <p><i class="fa-solid fa-circle-info" aria-hidden="true"></i><span><strong>Información del envase</strong><small>Consulta siempre su etiqueta</small></span></p>
+                        </div>
+                        <p class="source-note">Fotografías del fabricante; los gramajes del prototipo pueden diferir. <a id="manufacturer-link" target="_blank" rel="noopener noreferrer">Consultar producto oficial</a>.</p>
+                    </div>
+                </div>
+                <div class="product-accordions">
+                    <details open><summary>Descripción</summary><p id="description-content"></p></details>
+                    <details><summary>Conservación</summary><p id="conservation-content"></p></details>
+                    <details><summary>Uso recomendado</summary><p id="recommended-use-content"></p></details>
+                    <details><summary>Información académica</summary><p>La información presentada en esta tienda forma parte de un prototipo universitario y no sustituye la información oficial del fabricante.</p></details>
+                </div>
+                <section class="related-section" aria-labelledby="related-title">
+                    <div class="section-heading"><div><p class="eyebrow">SIGUE EXPLORANDO</p><h2 id="related-title">También para tu mesa</h2></div><a class="text-link" href="productos.html">Volver al catálogo</a></div>
+                    <p class="demo-note">Productos relacionados · precios y disponibilidad de demostración.</p>
+                    <div class="product-grid" id="related-products"></div>
+                </section>
+            </div>
+            <noscript><p class="notice">Activa JavaScript para ver la información, cambiar las fotografías y agregar este producto al carrito. <a href="productos.html">Volver al catálogo</a>.</p></noscript>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-grid">
+            <div class="footer-brand"><a class="brand" href="index.html" aria-label="Quesos Carranco, inicio"><img data-brand-logo src="https://quesoscarranco.com.mx/wp-content/uploads/2024/11/carranco-white-logo-200x104.png" width="154" height="64" alt="Quesos Carranco"><span class="brand-fallback" hidden>Carranco<small>DESDE 1885</small></span></a><p>Una tradición quesera de San Luis Potosí. Sabores que acompañan recetas, encuentros y momentos en familia.</p></div>
+            <div><h3>Navegación</h3><ul class="footer-links"><li><a href="index.html">Inicio</a></li><li><a href="productos.html" data-future="Catálogo completo">Productos</a></li><li><a href="index.html#tradicion" data-home-target="tradicion">Nosotros</a></li><li><a href="index.html#contacto" data-home-target="contacto">Contacto</a></li></ul></div>
+            <div><h3>Ayuda</h3><ul class="footer-links"><li><button type="button" data-help="faq">Preguntas frecuentes</button></li><li><button type="button" data-help="envios">Envíos</button></li><li><button type="button" data-help="pagos">Métodos de pago</button></li><li><a href="cuenta.html#pedidos" data-future="Seguimiento de pedidos">Seguimiento de pedido</a></li></ul></div>
+            <div class="footer-social"><h3>Compartimos la tradición</h3><div class="social-links"><button type="button" data-social="Facebook" aria-label="Facebook, demostración"><i class="fa-brands fa-facebook-f" aria-hidden="true"></i></button><button type="button" data-social="Instagram" aria-label="Instagram, demostración"><i class="fa-brands fa-instagram" aria-hidden="true"></i></button><button type="button" data-social="X" aria-label="X, demostración"><i class="fa-brands fa-x-twitter" aria-hidden="true"></i></button><button type="button" data-social="YouTube" aria-label="YouTube, demostración"><i class="fa-brands fa-youtube" aria-hidden="true"></i></button><button type="button" data-social="TikTok" aria-label="TikTok, demostración"><i class="fa-brands fa-tiktok" aria-hidden="true"></i></button><button type="button" data-whatsapp aria-label="WhatsApp, asistente de demostración"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i></button><button type="button" data-social="Telegram" aria-label="Telegram, demostración"><i class="fa-brands fa-telegram" aria-hidden="true"></i></button></div><p class="social-note">Proyecto académico · Perfiles NO OFICIALES</p></div>
+        </div>
+        <div class="container academic-footer"><strong>PROYECTO ACADÉMICO · SITIO NO OFICIAL</strong><p>Este sitio fue desarrollado únicamente con fines académicos como parte de un proyecto universitario de Comercio Electrónico. No representa ni sustituye los canales oficiales de Quesos Carranco.</p><p class="credits">© <span id="current-year">2026</span> Proyecto universitario. Fotografías ambientales: Unsplash. Marca y fotografías de producto: Carranco. Importes en MXN.</p></div>
+    </footer>
+
+    <button class="whatsapp-float" type="button" data-whatsapp aria-label="Abrir asistente Carranco de demostración"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i><span>¿Te ayudamos?</span></button>
+    <div class="toast" id="toast" role="status" aria-live="polite" aria-atomic="true"></div>
+
+    <dialog class="modal" id="info-dialog" aria-labelledby="info-title"><div class="modal-top"><p class="eyebrow">PROYECTO ACADÉMICO</p><button class="icon-button close-dialog" type="button" data-close-dialog aria-label="Cerrar ventana"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button></div><h2 id="info-title"></h2><p id="info-message"></p><button class="button button-navy" type="button" data-close-dialog>Entendido</button></dialog>
+
+    <dialog class="modal cart-modal" id="cart-dialog" aria-labelledby="cart-title"><div class="modal-top"><div><p class="eyebrow">TU SELECCIÓN</p><h2 id="cart-title">Mi carrito</h2></div><button class="icon-button close-dialog" type="button" data-close-dialog aria-label="Cerrar carrito"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button></div><p class="demo-note">Carrito de demostración. No se realizan cobros ni pedidos reales.</p><p class="storage-note" id="storage-note" hidden>No fue posible guardar el carrito en este navegador. Se conservará mientras esta página esté abierta.</p><div id="cart-items"></div><div id="cart-summary"></div><div class="cart-actions"><button class="text-link" type="button" id="clear-cart">Vaciar carrito</button><button class="button button-outline" type="button" data-close-dialog>Seguir explorando</button><a class="button button-navy" href="checkout.html" data-future="Proceso de compra" id="checkout-link">Continuar compra</a></div></dialog>
+</body>
+</html>

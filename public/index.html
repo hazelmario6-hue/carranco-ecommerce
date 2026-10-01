@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Prototipo académico de una tienda de Quesos Carranco. Explora sabores, prueba el carrito y conoce su tradición potosina. Sitio no oficial.">
+    <meta name="theme-color" content="#0D1B2A">
+    <title>Quesos Carranco | Tradición en tu mesa · Proyecto académico</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230D1B2A'/%3E%3Ctext x='16' y='24' text-anchor='middle' font-family='Georgia' font-size='27' fill='%23C9A24B'%3EC%3C/text%3E%3C/svg%3E">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <script src="js/productos.js" defer></script>
+    <script src="js/main.js" defer></script>
+</head>
+<body>
+    <a class="skip-link" href="#contenido">Saltar al contenido</a>
+    <header class="site-header">
+        <div class="container navbar">
+            <a class="brand" href="index.html" aria-label="Quesos Carranco, inicio">
+                <img data-brand-logo src="https://quesoscarranco.com.mx/wp-content/uploads/2024/11/carranco-white-logo-200x104.png" width="154" height="64" alt="Quesos Carranco">
+                <span class="brand-fallback" hidden>Carranco<small>DESDE 1885</small></span>
+            </a>
+            <button class="icon-button menu-toggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="main-nav" hidden>
+                <i class="fa-solid fa-bars" aria-hidden="true"></i>
+            </button>
+            <nav class="main-nav" id="main-nav" aria-label="Navegación principal">
+                <a class="nav-link active" href="index.html" aria-current="page">Inicio</a>
+                <a class="nav-link" href="productos.html" data-future="Catálogo completo">Productos</a>
+                <a class="nav-link" href="nosotros.html" data-home-target="tradicion">Nosotros</a>
+                <a class="nav-link" href="contacto.html" data-home-target="contacto">Contacto</a>
+                <a class="nav-link nav-account" href="cuenta.html" data-future="Mi cuenta y pedidos"><i class="fa-regular fa-user" aria-hidden="true"></i> Mi cuenta</a>
+                <a class="nav-cart" href="carrito.html" data-open-cart aria-label="Carrito, 0 productos">
+                    <i class="fa-solid fa-bag-shopping" aria-hidden="true"></i><span>Carrito</span><span class="cart-count" data-cart-count>0</span>
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <main id="contenido">
+        <section class="hero" aria-labelledby="hero-title">
+            <div class="container hero-grid">
+                <div class="hero-copy">
+                    <p class="eyebrow"><span class="short-line"></span> DE SAN LUIS POTOSÍ A TU MESA</p>
+                    <h1 id="hero-title">Sabor tradicional<br>hecho a mano<br><em>desde 1885</em></h1>
+                    <p class="hero-description">Hay sabores que nos reúnen. Descubre la tradición quesera de Carranco y encuentra un favorito para cada momento en la mesa.</p>
+                    <a class="button button-gold" href="#destacados">Descubre más</a>
+                    <div class="hero-signature"><span>1885</span><p>Un origen potosino.<br>Una tradición que se comparte.</p></div>
+                </div>
+                <figure class="hero-visual">
+                    <img data-photo="hero" src="https://images.unsplash.com/photo-1695606452858-39038806b143?auto=format&amp;fit=crop&amp;w=1400&amp;q=85" width="1000" height="1100" fetchpriority="high" alt="Tabla de quesos y acompañamientos para compartir" decoding="async">
+                    <figcaption class="photo-caption">EL SABOR DE ESTAR JUNTOS <small>Fotografía ilustrativa</small></figcaption>
+                    <div class="heritage-seal" aria-hidden="true"><small>TRADICIÓN</small><span>1885</span><small>CARRANCO</small></div>
+                </figure>
+            </div>
+        </section>
+
+        <div class="benefits-band">
+            <div class="container benefits-grid">
+                <div><i class="fa-solid fa-wheat-awn" aria-hidden="true"></i><p><strong>Tradición artesanal</strong><span>Sabores con raíces potosinas</span></p></div>
+                <div><i class="fa-solid fa-basket-shopping" aria-hidden="true"></i><p><strong>A tu manera</strong><span>Explora y arma tu selección</span></p></div>
+                <div><i class="fa-solid fa-heart" aria-hidden="true"></i><p><strong>Para compartir</strong><span>Del desayuno a la sobremesa</span></p></div>
+            </div>
+        </div>
+
+        <section class="section container" id="destacados" aria-labelledby="featured-title">
+            <div class="section-heading">
+                <div><p class="eyebrow">LOS FAVORITOS DE LA MESA</p><h2 id="featured-title">Un queso para cada antojo</h2></div>
+                <a class="text-link" href="productos.html" data-future="Catálogo completo">Consultar catálogo</a>
+            </div>
+            <p class="demo-note"><i class="fa-solid fa-circle-info" aria-hidden="true"></i> Precios, existencias y promociones de demostración. No son precios oficiales.</p>
+            <div class="filter-status" id="filter-status" hidden><p></p><button class="text-link" type="button" data-reset-filter>Mostrar todos</button></div>
+            <div class="product-grid" id="featured-products"></div>
+            <noscript><p class="notice">Activa JavaScript para ver los productos y probar el carrito. Puedes leer las demás secciones sin activarlo.</p></noscript>
+        </section>
+
+        <section class="section section-cream" aria-labelledby="categories-title">
+            <div class="container">
+                <div class="section-heading"><div><p class="eyebrow">ENCUENTRA TU SABOR</p><h2 id="categories-title">De todos los días. Para cada ocasión.</h2></div></div>
+                <div class="category-grid">
+                    <a class="category-card" href="productos.html?categoria=frescos" data-category="frescos"><span class="category-number">01</span><i class="fa-solid fa-cheese" aria-hidden="true"></i><h3>Quesos frescos</h3><p>Ranchero, panela y cottage</p><span class="category-action">Explorar categoría</span></a>
+                    <a class="category-card" href="productos.html?categoria=fundir" data-category="fundir"><span class="category-number">02</span><i class="fa-solid fa-fire-burner" aria-hidden="true"></i><h3>Para fundir</h3><p>Oaxaca, asadero y Chihuahua</p><span class="category-action">Explorar categoría</span></a>
+                    <a class="category-card" href="productos.html?categoria=madurados" data-category="madurados"><span class="category-number">03</span><i class="fa-solid fa-utensils" aria-hidden="true"></i><h3>Quesos madurados</h3><p>Una selección para tu tabla</p><span class="category-action">Ver próxima selección</span></a>
+                    <a class="category-card" href="productos.html?categoria=mantequilla" data-category="mantequilla"><span class="category-number">04</span><i class="fa-solid fa-bread-slice" aria-hidden="true"></i><h3>Mantequilla</h3><p>Un toque especial en tu cocina</p><span class="category-action">Ver próxima selección</span></a>
+                </div>
+            </div>
+        </section>
+
+        <section class="section container" id="ofertas" aria-labelledby="offer-title">
+            <div class="offer-panel">
+                <figure class="offer-photo"><img data-photo="offer" src="https://images.unsplash.com/photo-1695606392694-93de9b0bf320?auto=format&amp;fit=crop&amp;w=1000&amp;q=85" width="850" height="850" loading="lazy" alt="Quesos sobre una tabla listos para llevar a la mesa"><figcaption>Fotografía ilustrativa del conjunto</figcaption></figure>
+                <div class="offer-copy"><p class="eyebrow">OFERTA DEL PROTOTIPO</p><h2 id="offer-title">La tradición<br>sabe mejor de a dos.</h2><p>Un dúo para tus recetas favoritas: Queso Ranchero de 400 g y Queso Panela de 400 g (presentaciones simuladas).</p><div class="offer-price"><del>$180.00</del><strong>$160.00 <small>MXN</small></strong><span>Ahorras $20.00</span></div><button class="button button-gold" type="button" data-add="duo-tradicion">Agregar el dúo al carrito</button><small class="offer-disclaimer">Precio y promoción simulados para el proyecto académico.</small></div>
+            </div>
+        </section>
+
+        <section class="section section-cream" id="tradicion" aria-labelledby="story-title">
+            <div class="container story-grid">
+                <figure class="story-photo"><img data-photo="story" src="https://images.unsplash.com/photo-1665105519765-a0ec8e027100?auto=format&amp;fit=crop&amp;w=1000&amp;q=85" width="900" height="1050" loading="lazy" alt="Paisaje rural que evoca el origen de la tradición quesera"><figcaption>Imagen ilustrativa; no muestra instalaciones de Carranco.</figcaption></figure>
+                <div class="story-copy"><p class="eyebrow">NUESTRAS RAÍCES</p><h2 id="story-title">Potosino de origen.<br>Tradicional de corazón.</h2><p>La historia de Carranco comienza en San Luis Potosí. Desde 1885, la elaboración de quesos y mantequilla forma parte de una tradición que ha acompañado a generaciones.</p><p>El Queso Ranchero, incorporado en 1958 y reconocido por su moldeado a mano, es una de las expresiones de esa identidad.</p><div class="story-milestones"><div><strong>1885</strong><span>Inicia la elaboración</span></div><div><strong>1958</strong><span>Nace el Queso Ranchero</span></div><div><strong>Hoy</strong><span>Una tradición compartida</span></div></div><a class="button button-outline" href="nosotros.html" data-future="Historia completa">Conoce nuestra historia</a><small class="source-note">Referencia histórica: <a href="https://quesoscarranco.com.mx/historia/" target="_blank" rel="noopener noreferrer">sitio oficial de Carranco</a>.</small></div>
+            </div>
+        </section>
+
+        <section class="section container" aria-labelledby="testimonials-title">
+            <div class="section-heading"><div><p class="eyebrow">MOMENTOS QUE SE COMPARTEN</p><h2 id="testimonials-title">En la mesa siempre hay una historia</h2></div></div>
+            <p class="demo-note">Testimonios ficticios creados para mostrar el diseño del prototipo; no son reseñas reales.</p>
+            <div class="testimonial-grid">
+                <figure class="testimonial"><span class="quote-mark" aria-hidden="true">“</span><blockquote>El ranchero le da ese toque que recuerdo de los desayunos en casa. Lo acompañaría con tortillas recién hechas.</blockquote><figcaption><span class="avatar" aria-hidden="true">ML</span><div><strong>Mariana L.</strong><small>Consumidora de ejemplo</small></div></figcaption></figure>
+                <figure class="testimonial"><span class="quote-mark" aria-hidden="true">“</span><blockquote>Para una tarde de quesadillas, elegiría Oaxaca. Es de esos sabores que invitan a quedarse un rato más en la mesa.</blockquote><figcaption><span class="avatar" aria-hidden="true">RC</span><div><strong>Ricardo C.</strong><small>Consumidor de ejemplo</small></div></figcaption></figure>
+                <figure class="testimonial"><span class="quote-mark" aria-hidden="true">“</span><blockquote>Me gusta imaginar una tabla sencilla: queso, fruta y buena compañía. No hace falta mucho para compartir algo especial.</blockquote><figcaption><span class="avatar" aria-hidden="true">AG</span><div><strong>Ana G.</strong><small>Consumidora de ejemplo</small></div></figcaption></figure>
+            </div>
+        </section>
+
+        <section class="catalog-cta" id="contacto" aria-labelledby="cta-title">
+            <div class="container cta-grid"><div><p class="eyebrow">LLEVA LA TRADICIÓN A TU MESA</p><h2 id="cta-title">Tu próximo favorito<br>te está esperando.</h2><p>Explora nuestra selección o conoce el asistente de demostración.</p></div><div class="cta-actions"><a class="button button-gold" href="productos.html" data-future="Catálogo completo">Consultar catálogo</a><button class="button button-light-outline" type="button" data-whatsapp><i class="fa-brands fa-whatsapp" aria-hidden="true"></i> Hablar con el asistente</button><p>Horario propuesto del prototipo:<br>L–V 9:00–18:00 · Sáb 9:00–14:00</p></div></div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-grid">
+            <div class="footer-brand"><a class="brand" href="index.html" aria-label="Quesos Carranco, inicio"><img data-brand-logo src="https://quesoscarranco.com.mx/wp-content/uploads/2024/11/carranco-white-logo-200x104.png" width="154" height="64" alt="Quesos Carranco"><span class="brand-fallback" hidden>Carranco<small>DESDE 1885</small></span></a><p>Una tradición quesera de San Luis Potosí. Sabores que acompañan recetas, encuentros y momentos en familia.</p></div>
+            <div><h3>Navegación</h3><ul class="footer-links"><li><a href="index.html">Inicio</a></li><li><a href="productos.html" data-future="Catálogo completo">Productos</a></li><li><a href="nosotros.html" data-home-target="tradicion">Nosotros</a></li><li><a href="contacto.html" data-home-target="contacto">Contacto</a></li></ul></div>
+            <div><h3>Ayuda</h3><ul class="footer-links"><li><button type="button" data-help="faq">Preguntas frecuentes</button></li><li><button type="button" data-help="envios">Envíos</button></li><li><button type="button" data-help="pagos">Métodos de pago</button></li><li><a href="cuenta.html#pedidos" data-future="Seguimiento de pedidos">Seguimiento de pedido</a></li></ul></div>
+            <div class="footer-social"><h3>Compartimos la tradición</h3><div class="social-links"><button type="button" data-social="Facebook" aria-label="Facebook, demostración"><i class="fa-brands fa-facebook-f" aria-hidden="true"></i></button><button type="button" data-social="Instagram" aria-label="Instagram, demostración"><i class="fa-brands fa-instagram" aria-hidden="true"></i></button><button type="button" data-social="X" aria-label="X, demostración"><i class="fa-brands fa-x-twitter" aria-hidden="true"></i></button><button type="button" data-social="YouTube" aria-label="YouTube, demostración"><i class="fa-brands fa-youtube" aria-hidden="true"></i></button><button type="button" data-social="TikTok" aria-label="TikTok, demostración"><i class="fa-brands fa-tiktok" aria-hidden="true"></i></button><button type="button" data-whatsapp aria-label="WhatsApp, asistente de demostración"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i></button><button type="button" data-social="Telegram" aria-label="Telegram, demostración"><i class="fa-brands fa-telegram" aria-hidden="true"></i></button></div><p class="social-note">Proyecto académico · Perfiles NO OFICIALES</p></div>
+        </div>
+        <div class="container academic-footer"><strong>PROYECTO ACADÉMICO · SITIO NO OFICIAL</strong><p>Este sitio fue desarrollado únicamente con fines académicos como parte de un proyecto universitario de Comercio Electrónico. No representa ni sustituye los canales oficiales de Quesos Carranco.</p><p class="credits">© <span id="current-year">2026</span> Proyecto universitario. Fotografías ambientales: Unsplash. Marca y fotografías de producto: Carranco. Importes en MXN.</p></div>
+    </footer>
+
+    <button class="whatsapp-float" type="button" data-whatsapp aria-label="Abrir asistente Carranco de demostración"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i><span>¿Te ayudamos?</span></button>
+    <div class="toast" id="toast" role="status" aria-live="polite" aria-atomic="true"></div>
+
+    <dialog class="modal" id="info-dialog" aria-labelledby="info-title"><div class="modal-top"><p class="eyebrow">PROYECTO ACADÉMICO</p><button class="icon-button close-dialog" type="button" data-close-dialog aria-label="Cerrar ventana"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button></div><h2 id="info-title"></h2><p id="info-message"></p><button class="button button-navy" type="button" data-close-dialog>Entendido</button></dialog>
+
+    <dialog class="modal product-modal" id="product-dialog" aria-labelledby="detail-title"><div class="modal-top"><p class="eyebrow">VISTA PREVIA DEL PRODUCTO</p><button class="icon-button close-dialog" type="button" data-close-dialog aria-label="Cerrar producto"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button></div><div id="product-detail"></div></dialog>
+
+    <dialog class="modal cart-modal" id="cart-dialog" aria-labelledby="cart-title"><div class="modal-top"><div><p class="eyebrow">TU SELECCIÓN</p><h2 id="cart-title">Mi carrito</h2></div><button class="icon-button close-dialog" type="button" data-close-dialog aria-label="Cerrar carrito"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button></div><p class="demo-note">Carrito de demostración. No se realizan cobros ni pedidos reales.</p><p class="storage-note" id="storage-note" hidden>No fue posible guardar el carrito en este navegador. Se conservará mientras esta página esté abierta.</p><div id="cart-items"></div><div id="cart-summary"></div><div class="cart-actions"><button class="text-link" type="button" id="clear-cart">Vaciar carrito</button><button class="button button-outline" type="button" data-close-dialog>Seguir explorando</button><a class="button button-navy" href="checkout.html" data-future="Proceso de compra" id="checkout-link">Continuar compra</a></div></dialog>
+</body>
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Catálogo académico de Quesos Carranco con búsqueda, categorías y carrito local. Precios y existencias simulados. Sitio no oficial.">
+    <meta name="theme-color" content="#0D1B2A">
+    <title>Nuestros productos | Quesos Carranco · Proyecto académico</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230D1B2A'/%3E%3Ctext x='16' y='24' text-anchor='middle' font-family='Georgia' font-size='27' fill='%23C9A24B'%3EC%3C/text%3E%3C/svg%3E">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <script src="js/productos.js" defer></script>
+    <script src="js/main.js" defer></script>
+
+    <script src="js/catalogo.js" defer></script>
+</head>
+<body class="catalog-page">
+    <a class="skip-link" href="#contenido">Saltar al contenido</a>
+    <header class="site-header">
+        <div class="container navbar">
+            <a class="brand" href="index.html" aria-label="Quesos Carranco, inicio">
+                <img data-brand-logo src="https://quesoscarranco.com.mx/wp-content/uploads/2024/11/carranco-white-logo-200x104.png" width="154" height="64" alt="Quesos Carranco">
+                <span class="brand-fallback" hidden>Carranco<small>DESDE 1885</small></span>
+            </a>
+            <button class="icon-button menu-toggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="main-nav" hidden>
+                <i class="fa-solid fa-bars" aria-hidden="true"></i>
+            </button>
+            <nav class="main-nav" id="main-nav" aria-label="Navegación principal">
+                <a class="nav-link" href="index.html">Inicio</a>
+                <a class="nav-link active" href="productos.html" aria-current="page">Productos</a>
+                <a class="nav-link" href="index.html#tradicion" data-home-target="tradicion">Nosotros</a>
+                <a class="nav-link" href="index.html#contacto" data-home-target="contacto">Contacto</a>
+                <a class="nav-link nav-account" href="cuenta.html" data-future="Mi cuenta y pedidos"><i class="fa-regular fa-user" aria-hidden="true"></i> Mi cuenta</a>
+                <a class="nav-cart" href="carrito.html" data-open-cart aria-label="Carrito, 0 productos">
+                    <i class="fa-solid fa-bag-shopping" aria-hidden="true"></i><span>Carrito</span><span class="cart-count" data-cart-count>0</span>
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <main id="contenido">
+        <section class="internal-hero" aria-labelledby="catalog-title">
+            <div class="container">
+                <p class="eyebrow">SABORES CON TRADICIÓN</p>
+                <h1 id="catalog-title">Nuestros productos</h1>
+                <p>Encuentra el queso Carranco ideal para cada ocasión.</p>
+            </div>
+        </section>
+        <section class="container catalog-section" aria-label="Catálogo de productos">
+            <div class="catalog-toolbar">
+                <form id="catalog-search-form" role="search">
+                    <label class="search-label" for="product-search">Buscar en el catálogo</label>
+                    <div class="search-field">
+                        <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+                        <input id="product-search" name="q" type="search" placeholder="Buscar productos..." autocomplete="off" aria-controls="catalog-products" aria-describedby="search-help">
+                    </div>
+                    <p class="demo-note" id="search-help">Busca por nombre, categoría o descripción.</p>
+                </form>
+                <div class="filter-chips" role="group" aria-label="Filtrar por categoría">
+                    <button class="filter-chip" type="button" data-filter="todos" aria-pressed="true">Todos</button>
+                    <button class="filter-chip" type="button" data-filter="frescos" aria-pressed="false">Quesos frescos</button>
+                    <button class="filter-chip" type="button" data-filter="fundir" aria-pressed="false">Para fundir</button>
+                    <button class="filter-chip" type="button" data-filter="madurados" aria-pressed="false">Madurados</button>
+                    <button class="filter-chip" type="button" data-filter="mantequilla" aria-pressed="false">Mantequilla</button>
+                </div>
+                <div class="catalog-meta">
+                    <p class="catalog-count" id="catalog-count" role="status" aria-live="polite" aria-atomic="true">Cargando catálogo...</p>
+                    <p class="demo-note">Precios utilizados únicamente con fines de demostración académica.</p>
+                </div>
+            </div>
+            <p class="catalog-note">Las presentaciones y existencias de esta tienda son simuladas. Las fotografías muestran envases del fabricante y pueden corresponder a otros gramajes. Consulta la etiqueta para conocer la presentación real.</p>
+            <div class="product-grid" id="catalog-products"></div>
+            <div class="empty-state catalog-empty" id="catalog-empty" hidden>
+                <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+                <h2>No encontramos productos con esos criterios.</h2>
+                <p>Prueba otra búsqueda o explora de nuevo el catálogo.</p>
+                <button class="button button-navy" type="button" id="reset-catalog">Ver todos los productos</button>
+            </div>
+            <noscript><p class="notice">Activa JavaScript para consultar el catálogo, utilizar los filtros y agregar productos al carrito.</p></noscript>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-grid">
+            <div class="footer-brand"><a class="brand" href="index.html" aria-label="Quesos Carranco, inicio"><img data-brand-logo src="https://quesoscarranco.com.mx/wp-content/uploads/2024/11/carranco-white-logo-200x104.png" width="154" height="64" alt="Quesos Carranco"><span class="brand-fallback" hidden>Carranco<small>DESDE 1885</small></span></a><p>Una tradición quesera de San Luis Potosí. Sabores que acompañan recetas, encuentros y momentos en familia.</p></div>
+            <div><h3>Navegación</h3><ul class="footer-links"><li><a href="index.html">Inicio</a></li><li><a href="productos.html" data-future="Catálogo completo">Productos</a></li><li><a href="index.html#tradicion" data-home-target="tradicion">Nosotros</a></li><li><a href="index.html#contacto" data-home-target="contacto">Contacto</a></li></ul></div>
+            <div><h3>Ayuda</h3><ul class="footer-links"><li><button type="button" data-help="faq">Preguntas frecuentes</button></li><li><button type="button" data-help="envios">Envíos</button></li><li><button type="button" data-help="pagos">Métodos de pago</button></li><li><a href="cuenta.html#pedidos" data-future="Seguimiento de pedidos">Seguimiento de pedido</a></li></ul></div>
+            <div class="footer-social"><h3>Compartimos la tradición</h3><div class="social-links"><button type="button" data-social="Facebook" aria-label="Facebook, demostración"><i class="fa-brands fa-facebook-f" aria-hidden="true"></i></button><button type="button" data-social="Instagram" aria-label="Instagram, demostración"><i class="fa-brands fa-instagram" aria-hidden="true"></i></button><button type="button" data-social="X" aria-label="X, demostración"><i class="fa-brands fa-x-twitter" aria-hidden="true"></i></button><button type="button" data-social="YouTube" aria-label="YouTube, demostración"><i class="fa-brands fa-youtube" aria-hidden="true"></i></button><button type="button" data-social="TikTok" aria-label="TikTok, demostración"><i class="fa-brands fa-tiktok" aria-hidden="true"></i></button><button type="button" data-whatsapp aria-label="WhatsApp, asistente de demostración"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i></button><button type="button" data-social="Telegram" aria-label="Telegram, demostración"><i class="fa-brands fa-telegram" aria-hidden="true"></i></button></div><p class="social-note">Proyecto académico · Perfiles NO OFICIALES</p></div>
+        </div>
+        <div class="container academic-footer"><strong>PROYECTO ACADÉMICO · SITIO NO OFICIAL</strong><p>Este sitio fue desarrollado únicamente con fines académicos como parte de un proyecto universitario de Comercio Electrónico. No representa ni sustituye los canales oficiales de Quesos Carranco.</p><p class="credits">© <span id="current-year">2026</span> Proyecto universitario. Fotografías ambientales: Unsplash. Marca y fotografías de producto: Carranco. Importes en MXN.</p></div>
+    </footer>
+
+    <button class="whatsapp-float" type="button" data-whatsapp aria-label="Abrir asistente Carranco de demostración"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i><span>¿Te ayudamos?</span></button>
+    <div class="toast" id="toast" role="status" aria-live="polite" aria-atomic="true"></div>
+
+    <dialog class="modal" id="info-dialog" aria-labelledby="info-title"><div class="modal-top"><p class="eyebrow">PROYECTO ACADÉMICO</p><button class="icon-button close-dialog" type="button" data-close-dialog aria-label="Cerrar ventana"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button></div><h2 id="info-title"></h2><p id="info-message"></p><button class="button button-navy" type="button" data-close-dialog>Entendido</button></dialog>
+
+    <dialog class="modal cart-modal" id="cart-dialog" aria-labelledby="cart-title"><div class="modal-top"><div><p class="eyebrow">TU SELECCIÓN</p><h2 id="cart-title">Mi carrito</h2></div><button class="icon-button close-dialog" type="button" data-close-dialog aria-label="Cerrar carrito"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button></div><p class="demo-note">Carrito de demostración. No se realizan cobros ni pedidos reales.</p><p class="storage-note" id="storage-note" hidden>No fue posible guardar el carrito en este navegador. Se conservará mientras esta página esté abierta.</p><div id="cart-items"></div><div id="cart-summary"></div><div class="cart-actions"><button class="text-link" type="button" id="clear-cart">Vaciar carrito</button><button class="button button-outline" type="button" data-close-dialog>Seguir explorando</button><a class="button button-navy" href="checkout.html" data-future="Proceso de compra" id="checkout-link">Continuar compra</a></div></dialog>
+</body>
+</html>
